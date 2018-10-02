@@ -29,7 +29,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qcom.ad.calib.data=/vendor/etc/sdr_config.cfg \
     ro.qcom.ad.hdr.calib.data=/vendor/etc/hdr_config.cfg \
     ro.qcom.ad.sensortype=2 \
-    ro.qualcomm.cabl=0
+    ro.qualcomm.cabl=0 \
+    ro.sf.lcd_density=480
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
