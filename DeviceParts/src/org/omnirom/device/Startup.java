@@ -30,7 +30,7 @@ public class Startup extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, final Intent bootintent) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-
+        DiracUtils.initialize();
         VibratorStrengthPreference.restore(context);
     }
 }
