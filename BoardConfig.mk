@@ -144,5 +144,12 @@ ifeq ($(WITH_TWRP),true)
 -include $(DEVICE_PATH)/twrp.mk
 endif
 
+#TWRP_INCLUDE_LOGCAT := true
+TARGET_USES_LOGD := true
+TW_INCLUDE_CRYPTO := true
+PLATFORM_SECURITY_PATCH := 2029-10-01
+TARGET_HW_DISK_ENCRYPTION := true
+TARGET_RECOVERY_QCOM_RTC_FIX := true
+
 # Inherit from the proprietary version
 -include vendor/xiaomi/beryllium/BoardConfigVendor.mk
