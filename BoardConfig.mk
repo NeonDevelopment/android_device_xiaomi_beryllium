@@ -47,7 +47,7 @@ BOARD_ROOT_EXTRA_FOLDERS := odm
 BOARD_ROOT_EXTRA_SYMLINKS := /vendor/dsp:/dsp /vendor/firmware_mnt:/firmware /vendor/bt_firmware:/bt_firmware /mnt/vendor/persist:/persist
 
 # Platform
-#TARGET_BOARD_PLATFORM := sdm845
+TARGET_BOARD_PLATFORM := sdm845
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno630
 
 # Audio
@@ -89,6 +89,7 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 # Graphics
 MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 2
+TARGET_DISABLE_DISPLAY := true
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 TARGET_USES_HWC2 := true
 
@@ -123,6 +124,7 @@ TARGET_TAP_TO_WAKE_NODE := "/dev/input/event2"
 
 # QCOM
 BOARD_USES_QCOM_HARDWARE := true
+BUILD_WITHOUT_VENDOR := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
