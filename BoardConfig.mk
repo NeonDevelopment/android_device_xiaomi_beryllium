@@ -134,6 +134,9 @@ TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 # RenderScript
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
+# RIL
+ENABLE_VENDOR_RIL_SERVICE := true
+
 # Sepolicy
 include device/qcom/sepolicy/sepolicy.mk
 include vendor/omni/sepolicy/sepolicy.mk
