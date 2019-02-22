@@ -53,6 +53,9 @@ BOARD_ROOT_EXTRA_SYMLINKS := /vendor/dsp:/dsp /vendor/firmware_mnt:/firmware /ve
 TARGET_BOARD_PLATFORM := sdm845
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno630
 
+# APEX
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
 # Audio
 USE_XML_AUDIO_POLICY_CONF := 1
 USE_CUSTOM_AUDIO_POLICY := 1
