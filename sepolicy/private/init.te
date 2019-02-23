@@ -4,10 +4,5 @@ allow init rootfs:file mounton;
 # Allow init to mount debugfs
 allow init debugfs:dir mounton;
 
-# Allow init to chown/chmod on pseudo files in /sys
-allow init {
-    sysfs_graphics
-}:file { open read setattr };
-
 # Allow init to process
 allow init { tee -tzdatacheck -ueventd -vendor_init -wfdservice }:process noatsecure;
