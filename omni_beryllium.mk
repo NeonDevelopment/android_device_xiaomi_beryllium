@@ -21,14 +21,17 @@ $(call inherit-product, vendor/omni/config/gsm.mk)
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-# Inherit from hardware-specific part of the product configuration
-$(call inherit-product, device/xiaomi/beryllium/device.mk)
+# Device
+DEVICE_PACKAGE_OVERLAYS += device/xiaomi/beryllium/overlay
 
 # CarrierConfig
 PRODUCT_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
+
+# Inherit from hardware-specific part of the product configuration
+$(call inherit-product, device/xiaomi/beryllium/device.mk)
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := omni_beryllium
@@ -42,5 +45,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="beryllium-user 9 PKQ1.180729.001 V10.1.3.0.PEJMIFI release-keys" \
     PRODUCT_NAME="beryllium" \
     TARGET_DEVICE="beryllium"
+
+PLATFORM_SECURITY_PATCH_OVERRIDE := 2018-06-05
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi-rev1

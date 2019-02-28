@@ -10,9 +10,6 @@ $(call inherit-product, vendor/xiaomi/beryllium/beryllium-vendor.mk)
 # Boot animation
 TARGET_BOOTANIMATION_SIZE := 1080p
 
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-
 PRODUCT_PACKAGES += \
     NoCutoutOverlay
 
