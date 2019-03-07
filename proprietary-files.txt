@@ -134,8 +134,6 @@ lib64/vendor.xiaomi.hardware.mtdservice@1.2.so
 lib64/vendor.xiaomi.hardware.tidaservice@1.0.so
 lib64/vendor.xiaomi.hardware.tidaservice@1.1.so
 lib/vendor.xiaomi.hardware.mtdservice@1.0.so
-lib/vendor.xiaomi.hardware.mtdservice@1.1.so
-lib/vendor.xiaomi.hardware.mtdservice@1.2.so
 lib/vendor.xiaomi.hardware.vsimapp@1.0.so
 
 # Perf
@@ -171,6 +169,7 @@ lib/vendor.xiaomi.hardware.citsensorservice@1.0.so
 lib/vendor.xiaomi.hardware.citsensorservice@1.1.so
 lib64/vendor.xiaomi.hardware.citsensorservice@1.0.so
 lib64/vendor.xiaomi.hardware.citsensorservice@1.1.so
+lib64/vendor.xiaomi.hardware.misys@1.0.so
 
 # WFD
 -priv-app/WfdService/WfdService.apk
