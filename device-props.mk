@@ -79,11 +79,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.lcd_density=440
 
-# Display features
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.df.extcolor.proc=0 \
-    persist.vendor.max.brightness=0
-
 # Display post-processing
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.ppd.fde.config=0 \

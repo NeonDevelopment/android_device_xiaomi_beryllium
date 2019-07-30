@@ -139,13 +139,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.composer@2.1-service \
+    android.hardware.graphics.mapper@2.0-impl-qti-display \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
-    libdrm.vendor \
-    libgui_vendor \
+    gralloc.sdm845 \
+    hwcomposer.sdm845 \
     libtinyxml \
     libvulkan \
-    vendor.display.config@1.2.vendor
+    memtrack.sdm845 \
+    vendor.display.config@1.7 \
+    vendor.qti.hardware.display.allocator@1.0-service
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -305,7 +308,9 @@ PRODUCT_PACKAGES += \
 
 # WiFi Display
 PRODUCT_PACKAGES += \
-    libnl
+    libdisplayconfig \
+    libnl \
+    libqdMetaData.system
 
 # WFD
 PRODUCT_BOOT_JARS += \
