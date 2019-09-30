@@ -30,6 +30,9 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/omni/overlay/CarrierConfig
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
+# Treble
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := omni_beryllium
 PRODUCT_DEVICE := beryllium
