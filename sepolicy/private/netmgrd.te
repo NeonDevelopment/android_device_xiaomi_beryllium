@@ -1,3 +1,0 @@
-type netmgrd, domain;
-
-allow netmgrd netutils_wrapper:process { noatsecure };

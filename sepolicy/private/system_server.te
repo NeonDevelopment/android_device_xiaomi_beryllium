@@ -1,4 +1,0 @@
-# allow system_server to interact with light hal
-binder_call(system_server, hal_light_sdm845)
-
-dontaudit system_server wfd_debug_prop:file { getattr open read };

@@ -1,8 +1,0 @@
-type diag_device, dev_type;
-
-type proc_pci, proc_type, fs_type;
-
-type qti_debugfs, fs_type, debugfs_type;
-
-type sysfs_white_led, sysfs_type, fs_type;
-type sysfs_block, fs_type, sysfs_type;

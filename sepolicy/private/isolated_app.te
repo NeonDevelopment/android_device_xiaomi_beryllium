@@ -1,3 +1,0 @@
-get_prop(isolated_app, boottime_prop);
-
-allow isolated_app app_data_file:dir getattr;

@@ -1,1 +1,0 @@
-genfscon proc /bus/pci/devices		u:object_r:proc_pci:s0

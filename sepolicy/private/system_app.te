@@ -1,13 +1,1 @@
-get_prop(system_app, qemu_hw_mainkeys_prop);
-get_prop(system_app, boottime_prop);
-get_prop(system_app, cnd_vendor_prop);
-
-allow system_app fs_bpf:dir { search };
-allow system_app sysfs_leds:file rw_file_perms;
-allow system_app proc_pagetypeinfo:file { getattr read open };
-allow system_app sysfs_zram:dir search;
-allow system_app sysfs_zram:file { getattr open read };
-
-allow system_app storaged:binder call;
-allow system_app wificond:binder call;
 hal_client_domain(system_app, hal_mlipay)

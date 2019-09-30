@@ -1,4 +1,0 @@
-type qemu_hw_mainkeys_prop, property_type;
-type wfd_debug_prop, property_type;
-type vendor_camera_prop, property_type;
-type cnd_vendor_prop, property_type;
