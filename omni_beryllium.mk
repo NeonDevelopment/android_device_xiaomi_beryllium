@@ -40,10 +40,10 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Poco F1
 PRODUCT_MANUFACTURER := Xiaomi
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT="Xiaomi/beryllium/beryllium:9/PKQ1.180729.001/V10.2.3.0.PEJMIXM:user/release-keys" \
-    PRIVATE_BUILD_DESC="beryllium-user 9 PKQ1.180729.001 V10.2.3.0.PEJMIXM release-keys" \
-    PRODUCT_NAME="beryllium" \
-    TARGET_DEVICE="beryllium"
+TARGET_DEVICE := beryllium
+PRODUCT_SYSTEM_NAME := beryllium
+
+OMNI_BUILD_FINGERPRINT := Xiaomi/beryllium/beryllium:9/PKQ1.180729.001/V10.2.3.0.PEJMIXM:user/release-keys
+OMNI_PRIVATE_BUILD_DESC := beryllium-user 9 PKQ1.180729.001 V10.2.3.0.PEJMIXM release-keys
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi-rev1
