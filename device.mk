@@ -138,8 +138,8 @@ PRODUCT_PACKAGES += \
     ueventd.qcom.rc
 
 # Device Parts
-PRODUCT_PACKAGES += \
-    DeviceParts
+#PRODUCT_PACKAGES += \
+#    DeviceParts
 
 # Display
 PRODUCT_PACKAGES += \
@@ -262,8 +262,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/power/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
 # OMNI
-PRODUCT_PACKAGES += \
-    OmniDisplayManager
+#PRODUCT_PACKAGES += \
+#    OmniDisplayManager
 
 # QTI
 PRODUCT_COPY_FILES += \
@@ -338,5 +338,5 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system
 
 # WFD
-PRODUCT_BOOT_JARS += \
-    WfdCommon
+#PRODUCT_BOOT_JARS += \
+#    WfdCommon
