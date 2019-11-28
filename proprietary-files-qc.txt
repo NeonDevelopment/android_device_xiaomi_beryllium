@@ -667,7 +667,9 @@ vendor/lib64/libqti-util.so
 vendor/lib64/vendor.qti.hardware.perf@2.0.so
 
 # Power-off alarm
--vendor/app/PowerOffAlarm/PowerOffAlarm.apk
+-product/app/PowerOffAlarm/PowerOffAlarm.apk
+product/lib64/vendor.qti.hardware.alarm@1.0.so
+product/lib/vendor.qti.hardware.alarm@1.0.so
 vendor/bin/hw/vendor.qti.hardware.alarm@1.0-service
 vendor/bin/power_off_alarm
 vendor/bin/poweroffm64
@@ -901,6 +903,7 @@ vendor/lib/libthermalclient.so
 # Time services
 -vendor/app/TimeService/TimeService.apk
 vendor/bin/time_daemon
+vendor/etc/init/init.time_daemon.rc
 vendor/lib64/libtime_genoff.so
 vendor/lib/libtime_genoff.so
 
