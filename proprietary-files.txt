@@ -193,7 +193,7 @@ vendor/lib/mibokeh_845_opencl.bin
 vendor/firmware/bu64748gwz.prog
 vendor/firmware/CAMERA_ICP.elf
 
-# Display configs
+# Display configs - from Dipper 9.12.26
 vendor/etc/hdr_config.cfg
 vendor/etc/sdr_config.cfg
 
@@ -205,7 +205,7 @@ vendor/lib64/libgf_hal.so
 vendor/lib64/vendor.goodix.hardware.biometrics.fingerprint@2.1.so
 vendor/lib64/vendor.goodix.hardware.fingerprintextension@1.0.so
 
-# FM
+# FM - from Dipper 9.12.26
 lib64/fm_helium.so
 lib64/libfm-hci.so
 lib64/libfmq.so
@@ -319,7 +319,7 @@ vendor/lib/vendor.qti.gnss@2.1.so
 -priv-app/HotwordEnrollmentOKGoogleWCD9340/HotwordEnrollmentOKGoogleWCD9340.apk;PRESIGNED
 -priv-app/HotwordEnrollmentXGoogleWCD9340/HotwordEnrollmentXGoogleWCD9340.apk;PRESIGNED
 
-# Keymaster
+# Keymaster - from Dipper 9.12.26
 vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
 vendor/etc/init/android.hardware.keymaster@3.0-service-qti.rc
 vendor/lib64/hw/android.hardware.keymaster@3.0-impl-qti.so
@@ -335,7 +335,7 @@ vendor/lib/libkeymasterutils.so
 vendor/etc/qdcm_calib_data_ebbg_fhd_video_dsi_panel.xml
 vendor/etc/qdcm_calib_data_tianma_fhd_video_dsi_panel.xml
 
-# Snapdragon Computer Vision Engine
+# Snapdragon Computer Vision Engine - from Dipper 9.12.26
 vendor/lib64/libscveFaceLandmarks.so
 vendor/lib64/libscveFaceRecognition.so
 vendor/lib/libscveFaceLandmarks.so
@@ -377,7 +377,7 @@ vendor/etc/sensors/config/sns_smd.json
 vendor/etc/sensors/config/tmd2725.json
 vendor/etc/sensors/hals.conf
 
-# Thermal configs
+# Thermal configs - from Dipper 9.12.26
 vendor/etc/thermal-engine-sdm845-arvr.conf
 vendor/etc/thermal-engine-sdm845-camera.conf
 vendor/etc/thermal-engine-sdm845-class0.conf
@@ -390,5 +390,5 @@ vendor/etc/thermal-engine-sdm845-tgame.conf
 vendor/etc/thermal-engine-sdm845.conf
 vendor/etc/thermal-engine.conf
 
-# WiFi
+# WiFi - from Dipper 9.12.26
 vendor/lib64/vendor.qti.hardware.wifi.keystore@1.0.so
