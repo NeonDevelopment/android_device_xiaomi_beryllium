@@ -59,7 +59,6 @@ vendor/lib64/libarcsoft_dualcam_refocus_rear_w.so
 vendor/lib64/libarcsoft_dualcam_refocus.so
 vendor/lib64/libarcsoft_high_dynamic_range.so
 vendor/lib64/libarcsoft_supernight.so
-vendor/lib64/libbinder.so
 vendor/lib64/libcamxfdalgov7.so
 vendor/lib64/libcamxfdengine.so
 vendor/lib64/libcamxstatscore.so
@@ -121,7 +120,7 @@ vendor/lib/camera/components/com.qti.node.photosolid.so
 vendor/lib/camera/components/com.qti.node.remosaic.so
 vendor/lib/camera/components/com.qti.node.sr.so
 vendor/lib/camera/components/com.qti.node.swregistration.so
-vendor/lib/camera/components/com.qti.node.watermark.so
+#vendor/lib/camera/components/com.qti.node.watermark.so
 vendor/lib/camera/components/com.qti.node.xiaomigenderage.so
 vendor/lib/camera/components/com.qti.stats.aec.so
 vendor/lib/camera/components/com.qti.stats.aecwrapper.so
@@ -133,7 +132,7 @@ vendor/lib/camera/components/com.qti.stats.awbwrapper.so
 vendor/lib/camera/components/com.qti.stats.pdlib.so
 vendor/lib/camera/components/com.qti.stats.pdlibsony.so
 vendor/lib/camera/components/com.qti.stats.pdlibwrapper.so
-vendor/lib/camera/components/com.vidhance.node.eis.so
+#vendor/lib/camera/components/com.vidhance.node.eis.so
 vendor/lib/camera/components/com.xiaomi.node.mibokeh.so
 vendor/lib/camera/components/etc/GpuKernelRepo.pb
 vendor/lib/camera/components/etc/model_back.dlc
@@ -158,7 +157,6 @@ vendor/lib/libarcsoft_low_light_hdr.so
 vendor/lib/libarcsoft_portrait_lighting.so
 vendor/lib/libarcsoft_portrait_lighting_c.so
 vendor/lib/libarcsoft_supernight.so
-vendor/lib/libbinder.so
 vendor/lib/libcamera_dirty.so
 vendor/lib/libcamera_scene.so
 vendor/lib/libcamxfdalgov7.so
@@ -195,7 +193,7 @@ vendor/lib/mibokeh_845_opencl.bin
 vendor/firmware/bu64748gwz.prog
 vendor/firmware/CAMERA_ICP.elf
 
-# Display configs
+# Display configs - from Dipper 9.12.26
 vendor/etc/hdr_config.cfg
 vendor/etc/sdr_config.cfg
 
@@ -207,16 +205,16 @@ vendor/lib64/libgf_hal.so
 vendor/lib64/vendor.goodix.hardware.biometrics.fingerprint@2.1.so
 vendor/lib64/vendor.goodix.hardware.fingerprintextension@1.0.so
 
-# FM
+# FM - from Dipper 9.12.26
 lib64/fm_helium.so
 lib64/libfm-hci.so
--lib64/vendor.qti.hardware.fm@1.0.so
+lib64/libfmq.so
+-product/lib64/vendor.qti.hardware.fm@1.0.so
+-product/lib/vendor.qti.hardware.fm@1.0.so
 lib/fm_helium.so
 lib/libfm-hci.so
--lib/vendor.qti.hardware.fm@1.0.so
-vendor/lib64/hw/vendor.qti.hardware.fm@1.0-impl.so
+lib/libfmq.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so
-vendor/lib/hw/vendor.qti.hardware.fm@1.0-impl.so
 vendor/lib/vendor.qti.hardware.fm@1.0.so
 
 # GNSS
@@ -335,7 +333,7 @@ vendor/lib/vendor.qti.gnss@2.1.so
 -priv-app/HotwordEnrollmentOKGoogleWCD9340/HotwordEnrollmentOKGoogleWCD9340.apk;PRESIGNED
 -priv-app/HotwordEnrollmentXGoogleWCD9340/HotwordEnrollmentXGoogleWCD9340.apk;PRESIGNED
 
-# Keymaster
+# Keymaster - from Dipper 9.12.26
 vendor/bin/hw/android.hardware.keymaster@3.0-service-qti
 vendor/etc/init/android.hardware.keymaster@3.0-service-qti.rc
 vendor/lib64/hw/android.hardware.keymaster@3.0-impl-qti.so
@@ -351,7 +349,7 @@ vendor/lib/libkeymasterutils.so
 vendor/etc/qdcm_calib_data_ebbg_fhd_video_dsi_panel.xml
 vendor/etc/qdcm_calib_data_tianma_fhd_video_dsi_panel.xml
 
-# Snapdragon Computer Vision Engine
+# Snapdragon Computer Vision Engine - from Dipper 9.12.26
 vendor/lib64/libscveFaceLandmarks.so
 vendor/lib64/libscveFaceRecognition.so
 vendor/lib/libscveFaceLandmarks.so
@@ -393,11 +391,10 @@ vendor/etc/sensors/config/sns_smd.json
 vendor/etc/sensors/config/tmd2725.json
 vendor/etc/sensors/hals.conf
 
-# Thermal configs
+# Thermal configs - from Dipper 9.12.26
 vendor/etc/thermal-engine-sdm845-arvr.conf
 vendor/etc/thermal-engine-sdm845-camera.conf
 vendor/etc/thermal-engine-sdm845-class0.conf
-vendor/etc/thermal-engine-sdm845-e10-india.conf
 vendor/etc/thermal-engine-sdm845-extreme.conf
 vendor/etc/thermal-engine-sdm845-map.conf
 vendor/etc/thermal-engine-sdm845-nolimits.conf
@@ -407,13 +404,5 @@ vendor/etc/thermal-engine-sdm845-tgame.conf
 vendor/etc/thermal-engine-sdm845.conf
 vendor/etc/thermal-engine.conf
 
-# Widevine DRM L1 support
-vendor/lib64/libhdcpsrm.so
-vendor/lib64/liboemcrypto.so
-vendor/lib64/libwvkeybox.so
-vendor/lib/liboemcrypto.so
-vendor/lib/libwvkeybox.so
-
-# WiFi
+# WiFi - from Dipper 9.12.26
 vendor/lib64/vendor.qti.hardware.wifi.keystore@1.0.so
-vendor/lib/vendor.qti.hardware.wifi.keystore@1.0.so
