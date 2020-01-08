@@ -88,7 +88,6 @@ TARGET_FACE_UNLOCK_CAMERA_ID := 5
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
-TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
 
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
