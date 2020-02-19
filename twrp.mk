@@ -17,6 +17,7 @@ TW_THEME := portrait_hdpi
 TW_SCREEN_BLANK_ON_BOOT := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
+TW_USE_TOOLBOX := true
 
 PRODUCT_COPY_FILES += \
     device/xiaomi/beryllium/twrp/recovery/root/init.recovery.usb.rc:recovery/root/init.recovery.usb.rc
