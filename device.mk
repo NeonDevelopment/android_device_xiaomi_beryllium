@@ -4,9 +4,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-# Get non-open-source specific aspects
-$(call inherit-product, vendor/xiaomi/beryllium/beryllium-vendor.mk)
-
 # Boot animation
 TARGET_BOOTANIMATION_SIZE := 1080p
 
