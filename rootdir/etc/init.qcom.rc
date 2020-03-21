@@ -1,7 +1,11 @@
 on init
     mount none /system/lib64/hw/power.beryllium.so /vendor/lib64/hw/power.qcom.so bind
     mount none /system/lib/hw/power.beryllium.so /vendor/lib/hw/power.qcom.so bind
+    mount none /system/overlay/EmptyOverlay/EmptyOverlay.apk /vendor/overlay/DevicesOverlay.apk bind
+    mount none /system/overlay/EmptyOverlay/EmptyOverlay.apk /vendor/overlay/DevicesAndroidOverlay.apk bind
     mount none /system/overlay/EmptyOverlay/EmptyOverlay.apk /vendor/overlay/CarrierConfigResCommon.apk bind
+    mount none /system/overlay/EmptyOverlay/EmptyOverlay.apk /vendor/overlay/FrameworksResCommon.apk bind
+    mount none /system/overlay/EmptyOverlay/EmptyOverlay.apk /vendor/overlay/MiuiFrameworkResOverlay.apk bind
 
 on post-fs
     # Vibrator
