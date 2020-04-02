@@ -23,7 +23,6 @@
 
     <!-- Radius of the software rounded corners at the top/bottomof the display. -->
     <dimen name="rounded_corner_radius_bottom">104.0px</dimen>
-    <dimen name="rounded_corner_radius_top">104.0px</dimen>
 
     <!-- Height of the bottom navigation / system bar. -->
     <dimen name="navigation_bar_height">40dp</dimen>
