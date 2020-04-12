@@ -6,9 +6,9 @@ product/lib/com.qualcomm.qti.ant@1.0.so
 vendor/lib64/soundfx/libvolumelistener.so:product/vendor_overlay/29/lib64/soundfx/libvolumelistener.so|5ea2812a582c76f7db3a7e5e4fb4cc33bbca3d9b
 vendor/lib/soundfx/libvolumelistener.so:product/vendor_overlay/29/lib/soundfx/libvolumelistener.so|776906b3f70c7764245e8b394fd23333aa811bfd
 
-# Bluetooth (aptX) - From pixel 3 xl
-lib64/libaptX_encoder.so|0cebad28afcf29f931bdc2d24fce2730dc882ecf
-lib64/libaptXHD_encoder.so|90f47f10af28b3ead143200cb4370b847c513127
+# Bluetooth (aptX) - From crosshatch-user-10-QQ2A.200405.005-6254899-release-keys
+product/lib64/libaptX_encoder.so|df1c89d7af1bb35808d5fe3496b04ba066c10cbc
+product/lib64/libaptXHD_encoder.so|e13fa70c97caaa24d061678bdee608eb8850a69e
 
 # CNE
 product/framework/com.quicinc.cne.api-V1.1-java.jar
@@ -167,7 +167,7 @@ etc/permissions/qti_permissions.xml
 product/etc/permissions/qcrilhook.xml
 product/etc/permissions/telephonyservice.xml
 product/framework/qcrilhook.jar
-product/framework/qti-telephony-common.jar|1826d1f45cbb6ce2f269eee828a8c7e8556cec84
+product/framework/qti-telephony-common.jar
 product/framework/QtiTelephonyServicelibrary.jar
 -product/priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 
