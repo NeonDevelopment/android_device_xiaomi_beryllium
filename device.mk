@@ -120,10 +120,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     NoCutoutOverlay
 
-# Power
-PRODUCT_PACKAGES += \
-    power.beryllium
-
 # QTI
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml \
