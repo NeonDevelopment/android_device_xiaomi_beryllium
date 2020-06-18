@@ -40,13 +40,19 @@ import android.util.Log;
 public class DeviceSettings extends PreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    public static final String KEY_PROXI_SWITCH = "proxi";
     public static final String KEY_VIBSTRENGTH = "vib_strength";
 
+    private TwoStatePreference mProxiSwitch;
     private VibratorStrengthPreference mVibratorStrength;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.main, rootKey);
+
+        mProxiSwitch = (TwoStatePreference) findPreference(KEY_PROXI_SWITCH);
+        mProxiSwitch.setChecked(Settings.System.getInt(getContext().getContentResolver(),
+                Settings.System.OMNI_DEVICE_PROXI_CHECK_ENABLED, 0) != 0);
 
         mVibratorStrength = (VibratorStrengthPreference) findPreference(KEY_VIBSTRENGTH);
         if (mVibratorStrength != null) {
@@ -56,6 +62,11 @@ public class DeviceSettings extends PreferenceFragment implements
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mProxiSwitch) {
+            Settings.System.putInt(getContext().getContentResolver(),
+                    Settings.System.OMNI_DEVICE_PROXI_CHECK_ENABLED, mProxiSwitch.isChecked() ? 1 : 0);
+            return true;
+        }
         return super.onPreferenceTreeClick(preference);
     }
 

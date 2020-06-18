@@ -65,28 +65,28 @@ public class KeyHandler implements DeviceKeyHandler {
     private static final boolean DEBUG = true;
     private static final boolean DEBUG_SENSOR = true;
 
-    private static final int BATCH_LATENCY_IN_MS = 100;
+    private static final String DT2W_NVT_PATH = "/proc/touchpanel/wake_gesture";
+    private static final String DT2W_FTS_PATH = "/sys/devices/platform/soc/a98000.i2c/i2c-3/3-0038/fts_gesture_mode";
+
     private static final int MIN_PULSE_INTERVAL_MS = 2500;
     private static final String DOZE_INTENT = "com.android.systemui.doze.pulse";
     private static final int HANDWAVE_MAX_DELTA_MS = 1000;
     private static final int POCKET_MIN_DELTA_MS = 5000;
 
-    private static final int KEY_GAME_SWITCH = 249;     /*nubia add for game switch key*/
+    private static final int KEY_DOUBLE_TAP = 143;
 
     private static final int[] sSupportedGestures = new int[]{
-        KEY_GAME_SWITCH
+        KEY_DOUBLE_TAP
     };
 
-    private static final int[] sHandledGestures = new int[]{
-        KEY_GAME_SWITCH
+    private static final int[] sProxiCheckedGestures = new int[]{
+        KEY_DOUBLE_TAP
     };
 
     protected final Context mContext;
     private final PowerManager mPowerManager;
     private Handler mHandler = new Handler();
     private SettingsObserver mSettingsObserver;
-    private final NotificationManager mNoMan;
-    private final AudioManager mAudioManager;
     private SensorManager mSensorManager;
     private boolean mProxyIsNear;
     private boolean mUseProxiCheck;
@@ -97,6 +97,7 @@ public class KeyHandler implements DeviceKeyHandler {
     private boolean mUseWaveCheck;
     private Sensor mPocketSensor;
     private boolean mUsePocketCheck;
+    private boolean mDoubleTapToWake;
 
     private SensorEventListener mProximitySensor = new SensorEventListener() {
         @Override
@@ -150,6 +151,9 @@ public class KeyHandler implements DeviceKeyHandler {
             mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
                     Settings.System.OMNI_DEVICE_FEATURE_SETTINGS),
                     false, this);
+            mContext.getContentResolver().registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.DOUBLE_TAP_TO_WAKE),
+                    false, this);
             update();
             updateDozeSettings();
         }
@@ -171,8 +175,12 @@ public class KeyHandler implements DeviceKeyHandler {
 
         public void update() {
             mUseProxiCheck = Settings.System.getIntForUser(
-                    mContext.getContentResolver(), Settings.System.OMNI_DEVICE_PROXI_CHECK_ENABLED, 1,
+                    mContext.getContentResolver(), Settings.System.OMNI_DEVICE_PROXI_CHECK_ENABLED, 0,
                     UserHandle.USER_CURRENT) == 1;
+            mDoubleTapToWake = Settings.Secure.getIntForUser(
+                    mContext.getContentResolver(), Settings.Secure.DOUBLE_TAP_TO_WAKE, 0,
+                    UserHandle.USER_CURRENT) == 1;
+            updateDoubleTapToWake();
         }
     }
 
@@ -192,8 +200,6 @@ public class KeyHandler implements DeviceKeyHandler {
         mPowerManager = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
         mSettingsObserver = new SettingsObserver(mHandler);
         mSettingsObserver.observe();
-        mNoMan = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-        mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
         mSensorManager = (SensorManager) mContext.getSystemService(Context.SENSOR_SERVICE);
         mPocketSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
         mTiltSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_TILT_DETECTOR);
@@ -206,19 +212,9 @@ public class KeyHandler implements DeviceKeyHandler {
     public boolean handleKeyEvent(KeyEvent event) {
         if (event.getAction() != KeyEvent.ACTION_UP) {
             return false;
+        } else {
+            return ArrayUtils.contains(sSupportedGestures, event.getScanCode());
         }
-        if (DEBUG) Log.i(TAG, "scanCode=" + event.getScanCode());
-
-        boolean isKeySupported = ArrayUtils.contains(sHandledGestures, event.getScanCode());
-        if (isKeySupported) {
-            if (DEBUG) Log.i(TAG, "scanCode=" + event.getScanCode());
-            switch(event.getScanCode()) {
-                case KEY_GAME_SWITCH:
-                    if (DEBUG) Log.i(TAG, "KEY_GAME_SWITCH");
-                    return true;
-            }
-        }
-        return isKeySupported;
     }
 
     @Override
@@ -228,6 +224,12 @@ public class KeyHandler implements DeviceKeyHandler {
 
     @Override
     public boolean isDisabledKeyEvent(KeyEvent event) {
+        boolean isProxyCheckRequired = mUseProxiCheck &&
+                ArrayUtils.contains(sProxiCheckedGestures, event.getScanCode());
+        if (mProxyIsNear && isProxyCheckRequired) {
+            if (DEBUG) Log.i(TAG, "isDisabledKeyEvent: blocked by proxi sensor - scanCode=" + event.getScanCode());
+            return true;
+        }
         return false;
     }
 
@@ -238,7 +240,10 @@ public class KeyHandler implements DeviceKeyHandler {
 
     @Override
     public boolean isWakeEvent(KeyEvent event){
-        return false;
+        if (event.getAction() != KeyEvent.ACTION_UP) {
+            return false;
+        }
+        return event.getScanCode() == KEY_DOUBLE_TAP;
     }
 
     @Override
@@ -266,7 +271,7 @@ public class KeyHandler implements DeviceKeyHandler {
         }
         if (mUseTiltCheck) {
             mSensorManager.registerListener(mTiltSensorListener, mTiltSensor,
-                    SensorManager.SENSOR_DELAY_NORMAL, BATCH_LATENCY_IN_MS * 1000);
+                    SensorManager.SENSOR_DELAY_NORMAL);
         }
     }
 
@@ -287,11 +292,18 @@ public class KeyHandler implements DeviceKeyHandler {
         if (DEBUG) Log.i(TAG, "Doze settings = " + value);
         if (!TextUtils.isEmpty(value)) {
             String[] parts = value.split(":");
-            if (parts.length == 3) {
                 mUseWaveCheck = Boolean.valueOf(parts[0]);
                 mUsePocketCheck = Boolean.valueOf(parts[1]);
                 mUseTiltCheck = Boolean.valueOf(parts[2]);
-            }
         }
+    }
+
+    private void updateDoubleTapToWake() {
+        Log.i(TAG, "udateDoubleTapToWake " + mDoubleTapToWake);
+        if (Utils.fileWritable(DT2W_NVT_PATH)) {
+            Utils.writeValue(DT2W_NVT_PATH, mDoubleTapToWake ? "1" : "0");
+        } else if (Utils.fileWritable(DT2W_FTS_PATH)) {
+            Utils.writeValue(DT2W_FTS_PATH, mDoubleTapToWake ? "1" : "0");
+	}
     }
 }

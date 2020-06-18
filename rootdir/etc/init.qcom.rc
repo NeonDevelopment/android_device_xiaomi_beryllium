@@ -1,6 +1,10 @@
 on init
     mount none /system/overlay/EmptyOverlay/EmptyOverlay.apk /vendor/overlay/CarrierConfigResCommon.apk bind
 
+on boot
+    chown system system /proc/touchpanel/wake_gesture
+    chmod 0660 /proc/touchpanel/wake_gesture
+
 on post-fs
     # Vibrator
     chown system system /sys/class/leds/vibrator/vmax_mv_user
