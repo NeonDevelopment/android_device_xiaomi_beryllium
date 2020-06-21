@@ -1,1 +1,2 @@
 allow system_server sysfs_kgsl:file { read open getattr };
+#allow system_server sysfs:file write;
