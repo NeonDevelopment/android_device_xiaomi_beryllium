@@ -1,5 +1,8 @@
 on init
+    mount none /system/overlay/EmptyOverlay/EmptyOverlay.apk /vendor/overlay/DevicesOverlay.apk bind
+    mount none /system/overlay/EmptyOverlay/EmptyOverlay.apk /vendor/overlay/DevicesAndroidOverlay.apk bind
     mount none /system/overlay/EmptyOverlay/EmptyOverlay.apk /vendor/overlay/CarrierConfigResCommon.apk bind
+    mount none /system/overlay/EmptyOverlay/EmptyOverlay.apk /vendor/overlay/MiuiFrameworkResOverlay.apk bind
 
 on post-fs
     # Vibrator
